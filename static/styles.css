@@ -1,0 +1,656 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #e0f7fa, #a7ffeb);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Light Theme */
+body.light {
+    background-color: #e8f5e9;
+}
+
+/* Dark Theme */
+body.dark {
+    background-color: #121212;
+}
+
+.container {
+    display: flex;
+    width: 90%;
+    height: 90vh;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 20%;
+    background: linear-gradient(135deg, #004d00, #006400);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.sidebar .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sidebar .logo img {
+    width: 60%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.sidebar .logo h1 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.sidebar nav ul li {
+    padding: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background 0.3s;
+}
+
+.sidebar nav ul li:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar nav ul li.active {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.sidebar hr {
+    width: 100%;
+    border: 0;
+    border-top: 1px solid #fff;
+    margin: 10px 0;
+}
+
+/* Content Area */
+.content {
+    width: 80%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #e8f5e9;
+    overflow-y: auto;
+    position: relative;
+}
+
+.content-section {
+    display: none;
+    text-align: center;
+    width: 100%;
+}
+
+.content-section.active {
+    display: block;
+    justify-content: center;
+}
+
+/* Chat Interface */
+.chat-container {
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.chat-header {
+    background: #004d00;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 10px;
+    background: #e0f7fa;
+    overflow-y: auto;
+}
+
+.chat-message {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.chat-message.bot {
+    background: #c8e6c9;
+    align-self: flex-start;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.chat-message.user {
+    background: #a5d6a7;
+    align-self: flex-end;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+    background: #ffffff;
+    border-top: 1px solid #ddd;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.chat-input button {
+    padding: 10px 20px;
+    background: #008000;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.chat-input button:hover {
+    background: #004d00;
+}
+
+.navigate-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 12px 20px;
+    background: #004d00;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.navigate-button:hover {
+    background: #006400;
+}
+
+/* Flex container to center content */
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Dropdown Styles */
+.dropdown {
+    margin: 20px 0;
+    text-align: left;
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: #fff;
+}
+
+.dropdown label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.dropdown select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #f9f9f9;
+    appearance: none;
+    transition: border-color 0.3s ease;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M7%2010l5%205%205-5z%22%20fill%3D%22%23000%22/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px 16px;
+}
+
+.dropdown select:hover {
+    border-color: #008000;
+}
+
+.dropdown select:focus {
+    border-color: #004d00;
+    outline: none;
+}
+
+/* Button Styles */
+#send-button, #predict-crop-button, #predict-price-button {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 20px auto;
+    padding: 12px;
+    background: #008000;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#send-button:hover, #predict-crop-button:hover, #predict-price-button:hover {
+    background: #004d00;
+}
+
+.navigate-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 12px 20px;
+    background: #004d00;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.navigate-button:hover {
+    background: #006400;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add this block for the inputs in the Market Analysis tab */
+.panel-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
+    max-width: 1200px;
+    gap: 3px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.inputs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: #fff;
+}
+
+.inputs-container label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.inputs-container input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.inputs-container input:hover {
+    border-color: #008000;
+}
+
+.inputs-container input:focus {
+    border-color: #004d00;
+    outline: none;
+}
+
+/* Chatbot Specific Styles */
+.chat-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+}
+
+.chat-header {
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+body.light .chat-header {
+    background-color: #388e3c;
+    color: white;
+}
+
+body.dark .chat-header {
+    background-color: #1b5e20;
+    color: #ecf0f1;
+}
+
+.chat-window {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body.light .chat-window {
+    background-color: #f1f8e9;
+}
+
+body.dark .chat-window {
+    background-color: #121212;
+    color: #ecf0f1;
+}
+
+.prompts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+body.dark .prompts {
+    background: rgba(18, 18, 18, 0.9);
+}
+
+.prompt {
+    padding: 15px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    white-space: nowrap;
+}
+
+body.light .prompt {
+    background-color: #a5d6a7;
+    color: #2e7d32;
+}
+
+body.dark .prompt {
+    background-color: #388e3c;
+    color: #ecf0f1;
+}
+
+.prompt:hover {
+    transform: scale(1.05);
+}
+
+.input-container {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    align-items: center;
+}
+
+body.light .input-container {
+    background-color: #e8f5e9;
+}
+
+body.dark .input-container {
+    background-color: #1b5e20;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+body.light .custom-file-upload {
+    background-color: #4caf50;
+    color: white;
+}
+
+body.dark .custom-file-upload {
+    background-color: #000000;
+    color: #ecf0f1;
+}
+
+#file-upload {
+    display: none;
+}
+
+#user-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    margin-right: 10px;
+}
+
+body.light #user-input {
+    background-color: #ffffff;
+    color: #333;
+}
+
+body.dark #user-input {
+    background-color: #121212;
+    color: #ecf0f1;
+}
+
+#send-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+body.light #send-btn {
+    background-color: #4caf50;
+    color: white;
+}
+
+body.dark #send-btn {
+    background-color: #030303;
+    color: #ecf0f1;
+}
+
+#send-btn:hover {
+    background-color: #388e3c;
+}
+
+body.dark #send-btn:hover {
+    background-color: #2e7d32;
+}
+
+.message {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    width: fit-content;
+    max-width: 80%;
+}
+
+body.light .message {
+    background-color: #fff;
+}
+
+body.dark .message {
+    background-color: #1b5e20;
+}
+
+.message.user {
+    align-self: flex-end;
+}
+
+body.light .message.user {
+    background-color: #dcedc8;
+}
+
+body.dark .message.user {
+    background-color: #388e3c;
+}
+
+.message.bot {
+    align-self: flex-start;
+}
+
+body.light .message.bot {
+    background-color: #c8e6c9;
+}
+
+body.dark .message.bot {
+    background-color: #2e7d32;
+}
+
+.theme-toggle-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+    margin-left: auto;
+}
+
+body.light .theme-toggle-btn {
+    background-color: #4caf50;
+    color: white;
+}
+
+body.dark .theme-toggle-btn {
+    background-color: #020202;
+    color: white;
+}
+
+body.light .theme-toggle-btn:hover {
+    background-color: #388e3c;
+}
+
+body.dark .theme-toggle-btn:hover {
+    background-color: #2e7d32;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .sidebar nav ul {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .sidebar nav ul li {
+        flex: 1;
+    }
+
+    .content {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .center-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .dropdown {
+        width: 100%;
+    }
+
+    #send-button {
+        width: 100%;
+    }
+}

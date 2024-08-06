@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmerGPT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="/static/logo4.png" alt="Logo">
+                <h1>FarmerGPT</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="tab active" data-tab="home"><i class="fas fa-home"></i> Home</li>
+                    <li class="tab" data-tab="crop-prediction"><i class="fas fa-seedling"></i> Crop Prediction</li>
+                    <li class="tab" data-tab="market-analysis"><i class="fas fa-chart-line"></i> Market Analysis</li>
+                    <li class="tab" data-tab="quick-chat"><i class="fas fa-comments"></i> Quick Chat</li>
+                </ul>
+            </nav>
+            <hr>
+        </aside>
+        <main class="content">
+            <section id="home" class="content-section active">
+                <h1>Welcome to FarmerGPT</h1>
+                <p>Explore crop prediction and market analysis tools to enhance your agricultural productivity.</p>
+            </section>
+            <section id="crop-prediction" class="content-section">
+                <h1>Crop Prediction</h1>
+                <p>Use our advanced tools to predict the best crops for your land and optimize your yields.</p>
+                <div class="center-container">
+                    <div class="dropdown">
+                        <label for="agricultural-areas">Select Agricultural Area:</label>
+                        <select id="agricultural-areas">
+                            <option value="Anuradhapura">Anuradhapura</option>
+                            <option value="Badulla">Badulla</option>
+                            <option value="Polonnaruwa">Polonnaruwa</option>
+                            <option value="Puttalam">Puttalam</option>
+                            <option value="Kurunegala">Kurunegala</option>
+                            <option value="Gampaha">Gampaha</option>
+                            <option value="Mahakumbukkadawala">Mahakumbukkadawala</option>
+                            <option value="Ampara">Ampara</option>
+                            <option value="Embilipitiya">Embilipitiya</option>
+                            <option value="Uhana">Uhana</option>
+                            <option value="Ganewatta">Ganewatta</option>
+                            <option value="Dankotuwa">Dankotuwa</option>
+                            <option value="Kelaniya">Kelaniya</option>
+                            <option value="Bandarawela">Bandarawela</option>
+                            <option value="Kalutara">Kalutara</option>
+                            <option value="Kegalle">Kegalle</option>
+                            <option value="Ratnapura">Ratnapura</option>
+                            <option value="Pothuhera">Pothuhera</option>
+                            <option value="Hambantota">Hambantota</option>
+                            <option value="Monaragala">Monaragala</option>
+                        </select>
+                        
+                        <button id="predict-crop-button">Predict Crops</button>
+                    </div>
+                    <div id="crop-recommendations"></div>
+                </div>
+                <button class="navigate-button" data-tab="quick-chat">Go to Quick Chat</button>
+            </section>
+            <section id="market-analysis" class="content-section">
+                <h1 style="padding-top: 10%;">Market Analysis</h1>
+                <p>Analyze the agricultural market trends and make informed decisions about your crops.</p>
+            
+                <div class="panel-container">
+                    <div class="inputs-panel">
+                        <h2>Time Period</h2>
+                        <div class="inputs-container">
+                            <label for="year">Year:</label>
+                            <select id="year" style="width: 100%; padding: 10px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px; background: #f9f9f9; transition: border-color 0.3s ease;">
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                            </select>
+                            
+                            <label for="month">Month:</label>
+                            <select id="month" style="width: 100%; padding: 10px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px; background: #f9f9f9; transition: border-color 0.3s ease;">
+                                <!-- Options will be dynamically generated in JavaScript -->
+                            </select>
+                            
+                            <label for="week">Week:</label>
+                            <select id="week" style="width: 100%; padding: 10px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px; background: #f9f9f9; transition: border-color 0.3s ease;">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                            
+                            <label for="crop">Crop:</label>
+                            <select id="crop" style="width: 100%; padding: 10px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px; background: #f9f9f9; transition: border-color 0.3s ease;">
+                                <option value="banana">Banana</option>
+                                <option value="chickpea">Chickpea</option>
+                                <option value="coconut">Coconut</option>
+                                <option value="rice">Rice</option>
+                                <option value="kidneybeans">Kidneybeans</option>
+                                <option value="papaya">Papaya</option>
+                                <option value="turmeric">Turmeric</option>
+                            </select>
+                            
+                            <button id="predict-price-button">Predict Price</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="price-prediction"></div>
+                <button class="navigate-button" data-tab="quick-chat">Go to Quick Chat</button>
+            </section>
+            
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const yearSelect = document.getElementById('year');
+    const monthSelect = document.getElementById('month');
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth();
+
+    function populateMonths() {
+        const selectedYear = parseInt(yearSelect.value, 10);
+        monthSelect.innerHTML = '';
+
+        const months = [
+            { value: 0, name: 'January' },
+            { value: 1, name: 'February' },
+            { value: 2, name: 'March' },
+            { value: 3, name: 'April' },
+            { value: 4, name: 'May' },
+            { value: 5, name: 'June' },
+            { value: 6, name: 'July' },
+            { value: 7, name: 'August' },
+            { value: 8, name: 'September' },
+            { value: 9, name: 'October' },
+            { value: 10, name: 'November' },
+            { value: 11, name: 'December' }
+        ];
+
+        for (const month of months) {
+            if (selectedYear > currentYear || (selectedYear === currentYear && month.value >= currentMonth)) {
+                const option = document.createElement('option');
+                option.value = month.value + 1;
+                option.textContent = month.name;
+                monthSelect.appendChild(option);
+            } else if (selectedYear > currentYear) {
+                const option = document.createElement('option');
+                option.value = month.value + 1;
+                option.textContent = month.name;
+                monthSelect.appendChild(option);
+            }
+        }
+    }
+
+    yearSelect.value = '2025';
+    populateMonths();
+
+    yearSelect.addEventListener('change', populateMonths);
+});
+</script>
+            
+            <section id="quick-chat" class="content-section">
+                <div class="chat-section">
+                    <div class="chat-header">
+                        <h1>ChatGPT for Farmers</h1>
+                        <button id="theme-toggle-btn" class="theme-toggle-btn"><i class="fas fa-adjust"></i> Toggle Theme</button>
+                    </div>
+                    <div class="chat-window" id="chat-window">
+                        <div class="prompts" id="prompts">
+                            <button class="prompt" onclick="sendPrompt('How to improve crop yield?')">How to improve crop yield?</button>
+                            <button class="prompt" onclick="sendPrompt('What are the best crops for my region?')">What are the best crops for my region?</button>
+                            <button class="prompt" onclick="sendPrompt('How to deal with pests?')">How to deal with pests?</button>
+                            <button class="prompt" onclick="sendPrompt('What are sustainable farming practices?')">What are sustainable farming practices?</button>
+                            <button class="prompt" onclick="sendPrompt('How to apply fertilizers effectively?')">How to apply fertilizers effectively?</button>
+                        </div>
+                    </div>
+                    <div class="input-container">
+                        <label for="file-upload" class="custom-file-upload">
+                            <i class="fa fa-paperclip"></i>
+                        </label>
+                        <input id="file-upload" type="file" />
+                        <input type="text" id="user-input" placeholder="Type your message...">
+                        <button id="send-btn"><i class="fa fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="/static/scripts.js"></script>
+</body>
+
+</html>
